@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: mboa-db
+    environment:
+      POSTGRES_USER: mboa
+      POSTGRES_PASSWORD: mboa
+      POSTGRES_DB: mboa
+    ports:
+      - "5433:5432"
+    volumes:
+      - mboa_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mboa -d mboa"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    container_name: mboa-redis
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  mboa_pgdata:

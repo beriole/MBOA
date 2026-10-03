@@ -1,0 +1,22 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+
+# Fichiers servis localement, jamais versionnés.
+#
+# `media/audio/` contient les enregistrements rapatriés depuis Wikimedia par
+# `python -m scripts.fetch_audio` : ils se retéléchargent, et 1,3 Mo de WAV
+# n'ont rien à faire dans l'historique.
+#
+# `media/products/` contient les photos déposées par les artisans. Ce sont des
+# données d'utilisateurs, pas du code : les versionner les rendrait
+# ineffaçables, ce qu'aucune demande de suppression ne pourrait défaire.
+media/

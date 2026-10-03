@@ -1,0 +1,21 @@
+fastapi==0.118.0
+uvicorn[standard]==0.37.0
+sqlalchemy==2.0.43
+asyncpg==0.30.0
+alembic==1.16.5
+pydantic==2.11.9
+pydantic-settings==2.11.0
+python-jose[cryptography]==3.5.0
+passlib[argon2]==1.7.4
+argon2-cffi==25.1.0
+python-multipart==0.0.20
+httpx==0.28.1
+structlog==25.4.0
+# Attestations PDF. BSD-3-Clause, sans service externe ni cout.
+reportlab==5.0.1
+
+# tests
+pytest==8.4.2
+pytest-asyncio==1.2.0
+anyio==4.11.0
+email-validator==2.2.0

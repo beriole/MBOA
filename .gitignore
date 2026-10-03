@@ -1,0 +1,49 @@
+# --- Secrets -----------------------------------------------------------
+# Le fichier d'environnement porte le mot de passe PostgreSQL et le secret
+# JWT. Il ne part jamais ; `mboa-api/.env.example` dit quelles clés remplir.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Python / API ------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# --- Flutter / application ---------------------------------------------
+# Tout est reconstruit par `flutter pub get` puis `flutter build`.
+mboa_app/build/
+mboa_app/.dart_tool/
+mboa_app/.flutter-plugins
+mboa_app/.flutter-plugins-dependencies
+mboa_app/ios/Pods/
+mboa_app/ios/.symlinks/
+mboa_app/android/.gradle/
+mboa_app/android/local.properties
+mboa_app/linux/flutter/ephemeral/
+mboa_app/macos/Flutter/ephemeral/
+mboa_app/windows/flutter/ephemeral/
+*.iml
+
+# --- Médias téléchargés ------------------------------------------------
+# 125 Mo rapatriés de Wikimedia Commons par
+# `mboa-api/scripts/fetch_commons_media.py`. Ils ne sont pas versionnés pour
+# deux raisons : le script les retrouve à l'identique, et leur attribution
+# (auteur, licence) vit dans PostgreSQL, pas ici — republier les fichiers
+# sans elle contreviendrait aux licences CC BY et CC BY-SA.
+mboa-api/media/
+
+# --- Divers ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+.kilo/
